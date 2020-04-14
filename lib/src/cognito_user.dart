@@ -142,7 +142,7 @@ class CognitoUser {
         ['DeviceKey'];
     await cacheDeviceKeyAndPassword();
 
-    if (dataConfirm['UserConfirmationNecessary'] == true) {
+    if (!_signInUserSession.isValid() && dataConfirm['UserConfirmationNecessary'] == true) {
       throw new CognitoUserConfirmationNecessaryException(
           signInUserSession: _signInUserSession);
     }
