@@ -32,6 +32,7 @@ class CognitoCredentials {
       final identityIdId = await identityId.getIdentityId(token, authenticator);
 
       authenticator ??= 'cognito-idp.$_region.amazonaws.com/$_userPoolId';
+      print(authenticator);
       final Map<String, String> loginParam = {
         authenticator: token,
       };
